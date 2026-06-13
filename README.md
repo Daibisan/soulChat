@@ -147,10 +147,6 @@ Mengirim pesan ke chatbot dan menerima respons empati.
 ### Chat Interface
 ![Chat Page](public/ss/Soulchat_chatpage.png)
 
-
-### Chat Interface
-[Tambahkan screenshot chat page di sini]
-
 ## 🚀 Deployment
 
 ### Deploy ke Vercel (Recommended)
