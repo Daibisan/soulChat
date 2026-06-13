@@ -1,0 +1,862 @@
+/* SoulChat Stylesheet - Frutiger Aero x Neumorphism Design */
+
+:root {
+  /* Light Mode Variables */
+  --bg-color: #E6F3F8;
+  --surface-color: #E6F3F8;
+  
+  /* Neumorphic Shadows - Light */
+  --shadow-light: #ffffff;
+  --shadow-dark: #b8c7cd;
+  --shadow-inset-light: inset 3px 3px 6px #b8c7cd, inset -3px -3px 6px #ffffff;
+  --shadow-outset: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  --shadow-inset: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+  
+  /* Colors (No Purple!) */
+  --accent-green: #39C05E;      /* Vibrant Eco Green */
+  --accent-blue: #0088CC;       /* Ocean/Sky Blue */
+  --accent-blue-rgb: 0, 136, 206;
+  --text-color: #1A3E4C;        /* Deep Teal Text */
+  --text-muted: #5F7D8E;
+  
+  /* Frutiger Aero Glare */
+  --glass-glare: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 55%);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.7);
+  --bubble-gradient: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9) 0%, rgba(135, 206, 250, 0.4) 60%, rgba(0, 136, 204, 0.15) 100%);
+  
+  /* Transitions */
+  --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+  /* Dark Mode Variables */
+  --bg-color: #0B1F2D;          /* Deep Sea/Ocean Blue */
+  --surface-color: #0B1F2D;
+  
+  /* Neumorphic Shadows - Dark */
+  --shadow-light: #12334a;      /* Lighter highlight shadow */
+  --shadow-dark: #040b10;       /* Darker depth shadow */
+  --shadow-inset-light: inset 2px 2px 4px #040b10, inset -2px -2px 4px #12334a;
+  --shadow-outset: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+  --shadow-inset: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+  
+  /* Colors */
+  --accent-green: #00FF87;      /* Glowing Cyan-Green */
+  --accent-blue: #00F0FF;       /* Glowing Electric Aqua */
+  --accent-blue-rgb: 0, 240, 255;
+  --text-color: #E3F2FD;        /* Soft White-Blue Text */
+  --text-muted: #80A3B5;
+  
+  /* Frutiger Aero Glare (Dark) */
+  --glass-glare: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 55%);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.15);
+  --bubble-gradient: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.3) 0%, rgba(0, 240, 255, 0.15) 60%, rgba(0, 0, 0, 0.35) 100%);
+}
+
+/* Reset & Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* Ambient Floating Water Bubbles (Frutiger Aero Background) */
+.water-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--bubble-gradient);
+  box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.05), 
+              inset 5px 5px 10px rgba(255, 255, 255, 0.8),
+              0 10px 20px rgba(0, 136, 204, 0.08);
+  border: var(--glass-border);
+  backdrop-filter: blur(1px);
+  animation: float-bubble 15s infinite ease-in-out;
+}
+
+/* Specific bubble properties (different sizes, positions, speed) */
+.bubble-1 {
+  width: 150px;
+  height: 150px;
+  left: 10%;
+  top: 15%;
+  animation-duration: 18s;
+  opacity: 0.7;
+}
+
+.bubble-2 {
+  width: 80px;
+  height: 80px;
+  right: 15%;
+  top: 10%;
+  animation-duration: 14s;
+  animation-delay: -3s;
+  opacity: 0.6;
+}
+
+.bubble-3 {
+  width: 220px;
+  height: 220px;
+  right: 8%;
+  bottom: 12%;
+  animation-duration: 25s;
+  animation-delay: -5s;
+  opacity: 0.5;
+}
+
+.bubble-4 {
+  width: 110px;
+  height: 110px;
+  left: 15%;
+  bottom: 15%;
+  animation-duration: 16s;
+  animation-delay: -2s;
+  opacity: 0.6;
+}
+
+.bubble-5 {
+  width: 60px;
+  height: 60px;
+  left: 45%;
+  top: 8%;
+  animation-duration: 12s;
+  animation-delay: -1s;
+  opacity: 0.8;
+}
+
+.bubble-6 {
+  width: 90px;
+  height: 90px;
+  right: 45%;
+  bottom: 25%;
+  animation-duration: 20s;
+  animation-delay: -7s;
+  opacity: 0.5;
+}
+
+/* Water bubble float animation */
+@keyframes float-bubble {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  33% {
+    transform: translateY(-25px) translateX(15px) scale(1.03);
+  }
+  66% {
+    transform: translateY(15px) translateX(-15px) scale(0.97);
+  }
+}
+
+/* Main App Containers & Views */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+}
+
+.view.hidden {
+  display: none !important;
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+}
+
+.view.active {
+  display: flex;
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Theme & Language Controls (Universal) */
+.theme-toggle-container {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.chat-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.lang-text {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: var(--accent-blue);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+  transition: color var(--transition-speed) ease;
+}
+
+[data-theme="dark"] .lang-text {
+  color: var(--accent-blue);
+  text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+}
+
+.btn-neumorphic {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-outset);
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  font-weight: 600;
+  user-select: none;
+}
+
+.btn-neumorphic:hover {
+  transform: translateY(-2px);
+  box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+}
+
+.btn-neumorphic:active {
+  transform: translateY(1px);
+  box-shadow: var(--shadow-inset);
+}
+
+.btn-circle {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+}
+
+/* Theme Toggle Icons Control */
+.theme-toggle-btn .sun-icon {
+  display: none;
+}
+
+.theme-toggle-btn .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle-btn .sun-icon {
+  display: block;
+  color: var(--accent-blue);
+}
+
+[data-theme="dark"] .theme-toggle-btn .moon-icon {
+  display: none;
+}
+
+/* Neumorphic Cards (Shared base) */
+.card-neumorphic {
+  background-color: var(--surface-color);
+  border-radius: 28px;
+  box-shadow: var(--shadow-outset);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease;
+}
+
+/* Glossy Overlay effect for Frutiger Aero */
+.glossy-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--glass-glare);
+  pointer-events: none;
+  border-radius: inherit;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.65);
+  border-left: 1.5px solid rgba(255, 255, 255, 0.65);
+  z-index: 3;
+}
+
+[data-theme="dark"] .glossy-overlay {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* HOME VIEW CARD */
+.home-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Logo Bubble (Realistic Water Drop with Icon inside) */
+.logo-bubble {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(57,192,94,0.15) 40%, rgba(0,136,204,0.2) 80%, rgba(255,255,255,0.1) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  box-shadow: var(--shadow-outset), 
+              0 0 25px rgba(var(--accent-blue-rgb), 0.15),
+              inset -5px -5px 15px rgba(0,0,0,0.02),
+              inset 5px 5px 12px rgba(255,255,255,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 30px;
+  animation: pulse-glow 4s infinite ease-in-out;
+}
+
+[data-theme="dark"] .logo-bubble {
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,255,135,0.06) 40%, rgba(0,240,255,0.1) 80%, rgba(255,255,255,0.02) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-outset),
+              0 0 30px rgba(var(--accent-blue-rgb), 0.25),
+              inset -5px -5px 15px rgba(0,0,0,0.2),
+              inset 5px 5px 12px rgba(255,255,255,0.15);
+}
+
+.logo-inner {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.logo-inner svg {
+  color: var(--accent-blue);
+  filter: drop-shadow(0 2px 5px rgba(0, 136, 204, 0.3));
+  transition: color var(--transition-speed) ease;
+}
+
+[data-theme="dark"] .logo-inner svg {
+  color: var(--accent-blue);
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
+}
+
+.logo-reflection {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  width: 45px;
+  height: 18px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+  border-radius: 50% / 100% 100% 0% 0%;
+  transform: rotate(-10deg);
+}
+
+[data-theme="dark"] .logo-reflection {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+}
+
+/* Tiny detail bubbles on the logo */
+.mini-bubble, .mini-bubble-2 {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.7);
+  filter: blur(0.5px);
+  border: 0.5px solid rgba(255,255,255,0.9);
+}
+
+.mini-bubble {
+  width: 12px;
+  height: 12px;
+  top: 25px;
+  right: 18px;
+  background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,0.1));
+}
+
+.mini-bubble-2 {
+  width: 8px;
+  height: 8px;
+  bottom: 25px;
+  left: 20px;
+  background: radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,0.1));
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: var(--shadow-outset), 0 0 25px rgba(var(--accent-blue-rgb), 0.15);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: var(--shadow-outset), 0 0 40px rgba(var(--accent-blue-rgb), 0.25);
+  }
+}
+
+/* Logo Text styling (Aero typography) */
+.logo-text {
+  font-size: 3.2rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text-color);
+  margin-bottom: 12px;
+  line-height: 1.1;
+  transition: color var(--transition-speed) ease;
+}
+
+.logo-text span {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+/* Start Button styling */
+.start-btn {
+  border-radius: 40px;
+  padding: 16px 36px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 136, 204, 0.25), var(--shadow-outset);
+  gap: 12px;
+}
+
+.start-btn span {
+  z-index: 5;
+}
+
+.start-btn svg {
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+.start-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 40px 40px 0 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+[data-theme="dark"] .start-btn::before {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 136, 204, 0.35), 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+}
+
+.start-btn:hover svg {
+  transform: translateX(5px);
+}
+
+.start-btn:active {
+  transform: translateY(1px);
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.2), var(--shadow-outset);
+}
+
+/* CHAT VIEW CONTAINER */
+.chat-container {
+  width: 100%;
+  max-width: 850px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  z-index: 2;
+}
+
+/* Chat Header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  z-index: 5;
+}
+
+.chat-user-profile {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.avatar-bubble {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-letter {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 1.3rem;
+  z-index: 2;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+.avatar-gloss {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 50% 50% 0 0;
+}
+
+.chat-user-info h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.status-text {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+/* Scrollable Chat Area */
+.chat-box-wrapper {
+  flex: 1;
+  border-radius: 24px;
+  padding: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.neumorphic-inset {
+  box-shadow: var(--shadow-inset);
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .neumorphic-inset {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar for Chat Box */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background: var(--shadow-dark);
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+[data-theme="dark"] .chat-box::-webkit-scrollbar-thumb {
+  background: var(--shadow-light);
+}
+
+/* Chat Message Bubbles */
+.chat-message {
+  display: flex;
+  width: 100%;
+}
+
+.chat-message.bot {
+  justify-content: flex-start;
+}
+
+.chat-message.user {
+  justify-content: flex-end;
+}
+
+.message-bubble {
+  max-width: 75%;
+  padding: 14px 20px;
+  border-radius: 20px;
+  position: relative;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  box-shadow: var(--shadow-outset);
+  transition: all 0.2s ease;
+}
+
+.neumorphic-outset {
+  background-color: var(--surface-color);
+  color: var(--text-color);
+}
+
+.chat-message.bot .message-bubble {
+  border-bottom-left-radius: 4px;
+  border: 1.5px solid rgba(255,255,255,0.7);
+}
+
+[data-theme="dark"] .chat-message.bot .message-bubble {
+  border: 1.5px solid rgba(255,255,255,0.08);
+}
+
+.chat-message.user .message-bubble {
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  border: none;
+  box-shadow: 4px 6px 12px rgba(0, 136, 204, 0.15), var(--shadow-outset);
+}
+
+/* Glossy highlight inside chat bubbles */
+.message-gloss {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 20px 20px 0 0;
+  pointer-events: none;
+}
+
+.chat-message.user .message-gloss {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.message-text {
+  position: relative;
+  z-index: 2;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.message-time {
+  display: block;
+  font-size: 0.75rem;
+  margin-top: 6px;
+  text-align: right;
+  opacity: 0.6;
+  font-weight: 500;
+  z-index: 2;
+  position: relative;
+}
+
+.chat-message.user .message-time {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Chat Input Bar */
+.chat-input-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  z-index: 5;
+}
+
+.input-neumorphic-wrapper {
+  flex: 1;
+  border-radius: 30px;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  min-height: 54px;
+}
+
+#message-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font-family: inherit;
+  font-size: 0.98rem;
+  resize: none;
+  line-height: 1.4;
+  padding: 8px 0;
+  max-height: 120px;
+}
+
+#message-input::placeholder {
+  color: var(--text-muted);
+}
+
+.btn-send {
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 100%);
+  color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 136, 204, 0.2), var(--shadow-outset);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-send::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 100%);
+  border-radius: 54px 54px 0 0;
+  pointer-events: none;
+}
+
+.btn-send svg {
+  transition: transform 0.2s ease;
+  z-index: 2;
+}
+
+.btn-send:hover svg {
+  transform: scale(1.1) translate(1px, -1px);
+}
+
+.btn-send:active {
+  transform: translateY(1px);
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.2), var(--shadow-outset);
+}
+
+/* Typing Indicator Animation */
+.typing-indicator {
+  display: flex;
+  gap: 5px;
+  padding: 8px 10px;
+  align-items: center;
+  height: 20px;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  animation: bounce-dot 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce-dot {
+  0%, 80%, 100% { transform: scale(0); opacity: 0.4; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 12px;
+  }
+  
+  .home-card {
+    padding: 36px 20px;
+  }
+  
+  .logo-text {
+    font-size: 2.6rem;
+  }
+  
+  .chat-container {
+    padding: 16px;
+    height: 95vh;
+  }
+  
+  .message-bubble {
+    max-width: 85%;
+  }
+
+  .btn-circle {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .btn-send {
+    width: 48px;
+    height: 48px;
+  }
+}
