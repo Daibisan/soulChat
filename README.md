@@ -2,6 +2,10 @@
 
 > A warm, non-judgmental virtual companion chatbot with a refreshing Frutiger Aero × Neumorphism UI design.
 
+![Homepage](public/ss/Soulchat_homepage.png)
+
+![Chat Page](public/ss/Soulchat_chatpage.png)
+
 ## 📋 Overview
 
 **SoulChat** adalah aplikasi chatbot yang dirancang untuk menjadi pendengar yang empati dan mendukung. Dengan antarmuka yang hangat dan menenangkan, SoulChat memungkinkan pengguna untuk berbagi pikiran, perasaan, kekhawatiran, dan kegembiraan mereka dalam bahasa pilihan mereka.
@@ -138,14 +142,6 @@ Mengirim pesan ke chatbot dan menerima respons empati.
 |----------|-------------|----------|
 | `GEMINI_API_KEY` | Google Gemini API Key | Yes |
 | `PORT` | Server port (default: 3000) | No |
-
-## 📸 Screenshots
-
-### Homepage
-![Homepage](public/ss/Soulchat_homepage.png)
-
-### Chat Interface
-![Chat Page](public/ss/Soulchat_chatpage.png)
 
 ## 🚀 Deployment
 
